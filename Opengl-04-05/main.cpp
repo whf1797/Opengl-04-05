@@ -33,7 +33,7 @@ void init(){
     
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glMatrixMode(GL_PROJECTION);
-    gluOrtho2D(-300, 300, -250, 250);
+    gluOrtho2D(0, 600, 0, 500);
 }
 
 void lineSegment(screenPt pt1, screenPt pt2){
@@ -47,7 +47,7 @@ void drawCurve(GLint curveNum){
     const GLdouble twoPi = 6.283185;
     const GLint a = 175, b = 60;
     
-    GLfloat r, theta,dtheta = 1.0/float(a);
+    GLfloat r = 0, theta,dtheta = 1.0/float(a);
     GLint x0 = 200, y0 = 250;
     
     screenPt curvePt[2];
@@ -74,7 +74,7 @@ void drawCurve(GLint curveNum){
                 case cardioid:
                 r = a * (1 + cos(theta));break;
                 case threeLeaf:
-                r = a * cos(3*theta);break;
+                r = a * cos(2*theta);break;
                 case fourLeaf:
                 r = a * cos(2*theta);break;
                 case sprial:
